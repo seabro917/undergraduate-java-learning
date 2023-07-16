@@ -1,0 +1,23 @@
+分拣思路里面value的值可以使用自定义类
+自定义类里面的成员变量设置成private权限（体现了封装性）
+同时给这个自定义类自动生成getter和setter使用这两个方法在其他类中对这个自定义类的成员进行改变和赋值。
+
+map中没有iterator（）返回迭代器的方法，所以无法用我们那个while（itr.hasNext（））的套路进行map的遍历
+暂时看到的一种方法是调用map类的KeySet方法将map中所有的key值放入到一个set中并且返回这个set对象
+再调用set里面的迭代器进行遍历所有的key值，在while（itr.hasNext（））循环体中调用map的get方法，实现map的遍历
+（★或者用加强for循环，实际上好像遇到的都是用加强for循环做的...）
+
+今天下午那个   //com.haigenomeal.storage03
+我感觉好像是这样的：
+先把最初的大的所有对象放在一个list里面
+然后再根据具体的要求细分，这里我就选用了map，将学生的班级号作为key值（因为我们要求根据班级号求各个班级的平均分）
+然后对应每个班级号（key）的value我设置成一个arraylist<integer>用来存放这个班号下的每个学生的成绩
+这一步又用到了分拣的思想 就是那几行代码：
+(先用迭代器遍历)
+        if(!map.containsKey(st.getClassnumber()))
+	map.put(st.getClassnumber(),new ArrayList<Integer>());   //如果当前的map里面没有以这一次遍历到的班级号为key值的容器，则创建
+        map.get(st.getClassnumber()).add(st.getScore());                      //直接调用容器，并且把成绩传入value里面（arraylist）
+
+这一次我写了好多好多静态的方法然后嵌套调用什么的 感觉好像很厉害哈哈ww
+最后想遍历map输出每个班级各自的结果
+这就用到了上面提到的借用set的迭代器来遍历map的思想。

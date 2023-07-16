@@ -1,0 +1,6 @@
+1\
+src£ºD:\Studying\MyEclipse-MyWork\2018.8.20_Test\test1
+dest: D:\Studying\MyEclipse-MyWork\2018.8.20_Test\test2\test1
+2\
+src:   D:\Studying\MyEclipse-MyWork\2018.8.20_Test\test1\º£¸ç×òÍíÃ»³Ô·¹
+dest:   D:\Studying\MyEclipse-MyWork\2018.8.20_Test\test2\test1\º£¸ç×òÍíÃ»³Ô·¹

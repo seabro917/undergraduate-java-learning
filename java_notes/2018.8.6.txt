@@ -1,0 +1,2 @@
+关于容器的部分
+HashCode和equals方法的关系：其实就是两个对象如果equals的结果为true那么他们的hashcode一定相等（联想HashMap的底层结构）

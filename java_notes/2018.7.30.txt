@@ -1,0 +1,9 @@
+类的单例化e.g.
+public class ChatManager(){
+private ChatManager(){}           //单例化，构造方法声明为private
+
+private static final ChatManager cm= new ChatManager();
+public static ChatManager getChatManager(){
+return cm;
+}
+.....

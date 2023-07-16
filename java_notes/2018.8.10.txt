@@ -1,0 +1,14 @@
+容器是没有办法直接比较内部的元素，无法直接对其内部的元素进行排序
+但是有部分容器可以实现排序
+1、TreeSet：数据元素可以排序且不重复（因为这个类实现了Set<T>接口，而Set的特点就是内部的元素不可重复）
+HashSet也实现了Set<T>接口，放在HashSet里的元素必须重写其hashcode和equals方法，但是TreeSet不需要
+TreeSet的去重：比较等于0即重复
+排序思路依旧是之前的两种：
+1）容器内元素实现 java.lang.Comparable接口 提供compareTo方法 
+2）排序业务类 java.util.Comparator 提供compare方法
+二者的构造方法不同，第二个直接在构造的时候就已经指定了比较器对象。
+
+TreeSet是在添加数据时排序，添加之后更改数据不会影响原先的排序
+所以TreeSet在使用过程中不要修改数据，否则可能出现重复。
+
+2、TreeMap：要求键可以排序，与上述TreeSet同理（本身实现Comparable接口或者额外提供排序业务类）

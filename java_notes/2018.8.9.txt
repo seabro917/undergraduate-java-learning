@@ -1,0 +1,8 @@
+容器里面的元素是没有办法直接排序的
+以list为例：     //BubbleSort_04.Java
+是先将容器里面的元素通过容器的toArray()方法返回到一个Object数组中，进而调用形参为Object数组的sort方法将这个数组排序，再遍历这个Object数组
+将所有元素再按排好序的顺序存入到list中，这样就实现了list容器内元素的排序。
+
+值得一提的是Object类为所有类的父类，那么是不是可以理解成其实Object类也是Comparable接口类的父类，所以在这个java文件中的bubbleSort_05方法
+中，才需要将Object类强转成Comparable类才能调用compareTo方法？
+而且Object类的sort方法和泛型类的sort方法不可同时使用！

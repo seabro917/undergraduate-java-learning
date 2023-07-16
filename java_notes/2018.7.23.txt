@@ -1,0 +1,26 @@
+老子真的操了
+我tm就是弄不懂了，这个什么TCP的端口和ip地址到底指的是谁的，咋搞得这么乱的呢？
+你看哈，首先基于TCP的一对Socket通信，有服务端和客户端，客户端只有一个Socket，而服务端除了一个和客户端的Socket相对应的Socket之外，还有一个
+ServerSocket，这三个都有port也就是端口，是不是两个Socket的端口必须一样？而ServerSocket也有自己的端口。
+书上：“....客户端创建一个Socket对象，指定服务端主机的IP地址和端口，发出TCP请求，客户端接收到客户端的连接请求，进程继续进行，建立一条TCP连接
+accept（）方法返回一个Socket对象，通过该Socket对象与客户端的Socket对象实现实时数据通信。”
+
+好像为了实现字符串的输入输出有这么个套路：
+
+输出：
+用PrintWriter （也遇到的对应输入用缓冲字符流的，使用BufferedWriter，和输入缓冲字符流类似的包装方式。）
+输入：
+BufferedReader br=new BufferedReader(new InputStreamReader(new InputStream()));
+我的理解是因为缓冲字符输入流可以一次性读取一个字符串，相比字符输入流方便一丢丢。
+然后构造实例的时候第一个new为构造BufferedReader
+第二个new：
+由缓冲字符输入流的构造方法可知，可以用一个Reader构造，而InputStreamReader是Reader的子类，由“子类即父类”的原则可知可以这样构造，且这样
+构造体现了由字节转换到字符的过程。
+第三个new：
+构造InputStramReader的实例由其构造方法可知可以用一个InputStream实例构造，例今天看的聊天室的代码，即是用Socket的getInputStream方法返回的
+InputStream实例构造InputStreamReader实例，再依次往上构造。
+
+BufferedReader的readline（）方法对于“读取一行字符串”中的“一行”好像是根据一个回车来判定的。
+这也就是为什么在今天的聊天室代码中，把Socket中发送的println改成print，不能够正常运行的原因。
+如果每次发送的时候不用println，每一次发过去的字符串结尾都没有一个回车换行，readline（）方法是在while的循环体中，没有遇到回车换行，则不会进行
+判定，所以就一直被缓存着（一直卡死在while循环体的判定条件处），也就不会执行循环体中将字符串append到TextArea的语句。

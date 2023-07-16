@@ -1,0 +1,2 @@
+IdentityHashMap类实现Map接口利用哈希表，比较键（和值）时使用引用相等代替对象相等的。 换句话说，在IdentityHashMap中 ，当且仅当(k1==k2)时，
+两个键k1和k2被认为是相等的。 （正常Map实现（如HashMap ）当两个键k1和k2被认为是相等的当且仅当(k1==null ? k2==null : k1.equals(k2))。 ） 

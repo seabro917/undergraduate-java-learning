@@ -1,0 +1,4 @@
+Collections类可以类比Arrays类
+
+迭代———堆栈后进先出（？）
+

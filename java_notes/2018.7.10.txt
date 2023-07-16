@@ -1,0 +1,19 @@
+String str1=new String("cnm");
+String str2=new String("cnm")；
+
+str1==str2; false; //“=="比较的是栈中的值 因为String为引用数据类型 str1和str2代表的均为二者指向的地址 又因为二者都new了 分配了两个
+不同的堆中的地址 所以二者值不相同
+str1.equals(str2)； true；
+//按理来说equals比较的是二者是否指向同一片内存 由上述可知str1和str2指向两个不同的地址 程序运行结果应该为false 但是String类重新写了继承自Object
+类的equals方法 重写的方法直接比较两个引用的字符串的内容是否相等 所以这里运行结果为true 类似的：
+若有如下代码：
+Person p1=new Person(12,"cnm");
+Person p2=new Person(12,"cnm");
+执行 p1.equals(p2);
+程序运行结果为false 
+因为我们知道这里p1和p2指向两个不同的堆中的内存区域（Person为引用数据类型 p1的具体内容存放在堆中 其指向的地址的地址值存放在栈中）
+若Person类中我们没有重写其继承自Object类的equals方法（Objecet类中“==”和“euqals”方法等价） 则由“equals方法比较二者是否指向
+同一片内存区”可知 这里程序运行结果应为false
+
+
+用new String() 创建的字符串不是常量，不能在编译期就确定，所以new String() 创建的字符串不放入常量池中，它们有自己的地址空间。
