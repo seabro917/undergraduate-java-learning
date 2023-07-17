@@ -1,6 +1,6 @@
 # undergraduate-java-learning
  Some self-learning JAVA codes when I was in my undergraduate junior summer (2018 summer).
- I was doing all these practices at that moment because I was just taught the JAVA course at the University that year, feeling not quite enough about the materials taught at lectures.
+ I was doing all these practices at that moment because I was just taught the JAVA course at the University that year, feeling not quite enough about the materials taught in lectures.
 
  In the "java_notes" folder, I also have some corresponding notes for each daily studying. please note I was using Chinese for writing these blog-like notes :)
 
