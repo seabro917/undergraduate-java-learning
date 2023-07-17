@@ -6,7 +6,7 @@
 
  Frankly speaking, I can't quite remember clearly what aspect of JAVA I was learning specifically at that moment, but roughly, it contained the following topics.
  - A deep rethinking of basic data types in JAVA and their corresponding built-in classes (well...at least deeper compared with what was told at lectures) 
- - A deep rethinking of some basic JAVA grammar & features, like interface, Comparator, etc... 
+ - A deep rethinking of some basic JAVA grammar & features, like interface, Comparator, Component, etc... 
  - Multi-thread processing (`sleep(), wait(), yield(), notify(), join()...`).
  - Network programming (client & server, socket, TCP, UDP, etc... This part seems to include a small project of online chatting room).
  - Collections in JAVA (especially `HashSet, HashMap, TreeSet, TreeMap, ArrayList`, and re-write their realizations manually).
